@@ -35,10 +35,11 @@
             <form>
                 <div class="form-control">
                     <label for="playername">Player Name</label>
-                    <input type="text" name="playername" id="playername">
+                    <input type="text" name="playername" id="playername" required>
                 </div>
+                <p id="config-errors"></p>
                 <div>
-                    <button type="button" class="btn btn-alt">Cancel</button>
+                    <button type="reset" class="btn btn-alt" id="cancel-btn">Cancel</button>
                     <button type="submit" class="btn">Confirm</button>
                 </div>
             </form>
@@ -46,7 +47,7 @@
         <section id="game-config">
             <ol>
                 <li>
-                    <article>
+                    <article id="player-1-data">
                         <h2>
                             Player 1
                         </h2>
@@ -56,13 +57,13 @@
                         <p class="player-symbol">
                             X
                         </p>
-                        <button class="btn btn-alt" id="edit-player-1-btn">
+                        <button class="btn btn-alt" id="edit-player-1-btn" data-playerid="1">
                             Edit
                         </button>
                     </article>
                 </li>
                 <li>
-                    <article>
+                    <article id="player-2-data">
                         <h2>
                             Player 2
                         </h2>
@@ -72,13 +73,15 @@
                         <p class="player-symbol">
                             O
                         </p>
-                        <button class="btn btn-alt" id="edit-player-2-btn">
+                        <button class="btn btn-alt" id="edit-player-2-btn" data-playerid="2">
                             Edit
-                        </button>
+                        </button> <!-- data- funciona para agregar lo siguiente como un atributo al objeto seleccionado, esto se usa para diferenciar 
+                        que boton fue presionado, el player1 o player2 -->
+ 
                     </article>
                 </li>
             </ol>
-            <button class="btn">Start New Game</button>
+            <button class="btn" id="start-game">Start New Game</button>
         </section>
 
         <section id="active-game">
@@ -90,16 +93,16 @@
                 It's your turn <span id="active-player-name">PLAYER NAME</span>!
             </p>
             <ol id="game-board">
-                <li class="disabled">X</li>
                 <li></li>
                 <li></li>
-
-                <li>O</li>
-                <li>X</li>
                 <li></li>
 
                 <li></li>
-                <li>O</li>
+                <li></li>
+                <li></li>
+
+                <li></li>
+                <li></li>
                 <li></li>
             </ol>
         </section>
